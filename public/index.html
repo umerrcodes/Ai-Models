@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat Interface</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <!-- Canvas for fire effect -->
+    <canvas id="fireCanvas"></canvas>
+
+    <div class="content-wrapper">
+        <div class="container mt-5">
+            <!-- Model Selector Dropdown -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="dropdown">
+                        <button class="btn btn-dark dropdown-toggle model-selector" type="button" id="modelSelector" data-bs-toggle="dropdown" aria-expanded="false">
+                            Select AI Model
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="modelSelector">
+                            <li><a class="dropdown-item" href="#" data-model="gpt-4">GPT-4 (OpenAI)</a></li>
+                            <li><a class="dropdown-item" href="#" data-model="gpt-3.5">GPT-3.5 (OpenAI)</a></li>
+                            <li><a class="dropdown-item" href="#" data-model="claude-3">Claude 3 (Anthropic)</a></li>
+                            <li><a class="dropdown-item" href="#" data-model="gemini-pro">Gemini Pro (Google)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Container -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="chat-container">
+                        <div class="chat-messages" id="chatMessages">
+                            <!-- Messages will appear here -->
+                        </div>
+                        <div class="message-input-container">
+                            <input type="text" class="message-input" id="messageInput" placeholder="Type your message...">
+                            <button class="send-button" id="sendButton">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2 12L20 12M20 12L14 6M20 12L14 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Fire effect -->
+    <script src="/fire.js"></script>
+    <!-- Custom JS -->
+    <script src="/script.js"></script>
+
+    <!-- Debug script to verify everything is loading -->
+    <script>
+        console.log('Document loaded');
+        $(document).ready(function() {
+            console.log('jQuery loaded');
+            // Test click handlers
+            $('#sendButton').click(function() {
+                console.log('Send button clicked');
+            });
+            $('.dropdown-item').click(function(e) {
+                console.log('Model selected:', $(this).data('model'));
+            });
+        });
+    </script>
+</body>
+</html>

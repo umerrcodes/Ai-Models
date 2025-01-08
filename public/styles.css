@@ -1,0 +1,159 @@
+body {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.chat-container {
+    background-color: rgba(13, 13, 13, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid #262626;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.model-selector {
+    background-color: rgba(13, 13, 13, 0.8) !important;
+    backdrop-filter: blur(5px);
+    border: 1px solid #262626 !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+    padding: 8px 16px;
+    width: 200px;
+    text-align: left;
+}
+
+.dropdown-menu-dark {
+    background-color: #0D0D0D !important;
+    border: 1px solid #262626 !important;
+    border-radius: 8px !important;
+    margin-top: 4px !important;
+}
+
+.dropdown-item {
+    color: #ffffff !important;
+    padding: 8px 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.dropdown-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ff4d00,
+        #ff9100,
+        #ff4d00,
+        transparent
+    );
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.dropdown-item:hover::after {
+    opacity: 1;
+    animation: fireFlow 2s linear infinite;
+}
+
+@keyframes fireFlow {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.dropdown-item:hover {
+    background-color: rgba(38, 38, 38, 0.8) !important;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.message-input-container {
+    display: flex;
+    padding: 16px;
+    gap: 8px;
+    border-top: 1px solid #262626;
+}
+
+.message-input {
+    flex-grow: 1;
+    background-color: rgba(13, 13, 13, 0.8);
+    border: 1px solid #262626;
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 12px 16px;
+    outline: none;
+}
+
+.message-input:focus {
+    border-color: #404040;
+}
+
+.send-button {
+    background-color: rgba(13, 13, 13, 0.8);
+    border: 1px solid #262626;
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 8px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.send-button:hover {
+    background-color: #262626;
+}
+
+.message {
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    max-width: 70%;
+}
+
+.user-message {
+    background-color: #262626;
+    color: white;
+    margin-left: auto;
+}
+
+.ai-message {
+    background-color: #0D0D0D;
+    border: 1px solid #262626;
+    margin-right: auto;
+}
+
+.navbar-type{
+    background-color: #0D0D0D;
+}
+
+canvas#fireCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 100vh;
+}
